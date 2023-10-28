@@ -19,7 +19,6 @@ class _ChatScreenState extends State<ChatScreen> {
       if (user != null) {
         firebaseUser = user;
         print('firebaseUser email: ${firebaseUser.email}');
-        print('firebaseUser displayName: ${firebaseUser.displayName}');
       }
     } catch (e) {
       print(e);
@@ -42,7 +41,8 @@ class _ChatScreenState extends State<ChatScreen> {
           IconButton(
               icon: Icon(Icons.close),
               onPressed: () {
-                //Implement logout functionality
+                _auth.signOut();
+                Navigator.pop(context);
               }),
         ],
         title: Text('⚡️Chat'),
